@@ -7,6 +7,9 @@ import "./styles/index.css";
 
 import { Toaster } from "react-hot-toast";
 
+import { HashRouter } from "react-router-dom";
+
+
 ReactDOM.createRoot(
   document.getElementById("root")
 )
@@ -14,9 +17,14 @@ ReactDOM.createRoot(
 
   <React.StrictMode>
 
-    <App />
-    
-      <Toaster
+    <HashRouter>
+
+      <App />
+
+    </HashRouter>
+
+
+    <Toaster
       position="top-right"
     />
 
