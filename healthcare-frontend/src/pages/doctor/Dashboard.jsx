@@ -18,7 +18,7 @@ useState,
 useEffect
 } from "react";
 
-import axios from "axios";
+import API from "../../api/axios";
 import toast from "react-hot-toast";
 
 export default function Dashboard(){
@@ -94,13 +94,8 @@ const token = localStorage.getItem("token");
 // logged-in doctor profile
 
 const profile =
-await axios.get(
-"http://localhost:5000/api/doctors/profile",
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+await API.get(
+"/doctors/profile"
 );
 
 setDoctor(
@@ -110,15 +105,8 @@ profile.data.doctor
 // dashboard counts
 
 const dash =
-await axios.get(
-
-"http://localhost:5000/api/doctors/dashboard",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+await API.get(
+"/doctors/dashboard"
 );
 
 setDashboard(
@@ -126,15 +114,8 @@ dash.data.dashboard
 );
 
 const appointmentRes =
-await axios.get(
-
-"http://localhost:5000/api/appointments",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+await API.get(
+"/appointments"
 );
 
 setAppointments(
@@ -144,15 +125,8 @@ appointmentRes.data.appointments || []
 // doctor patients
 
 const patientRes =
-await axios.get(
-
-"http://localhost:5000/api/patients/doctor",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+await API.get(
+"/patients/doctor"
 );
 
 setPatients(
