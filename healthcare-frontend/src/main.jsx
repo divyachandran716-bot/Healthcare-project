@@ -7,7 +7,7 @@ import "./styles/index.css";
 
 import { Toaster } from "react-hot-toast";
 
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 
 ReactDOM.createRoot(
@@ -17,16 +17,15 @@ ReactDOM.createRoot(
 
   <React.StrictMode>
 
-    <HashRouter>
+    <BrowserRouter>
 
       <App />
 
       <Toaster
         position="top-right"
-        reverseOrder={false}
       />
 
-    </HashRouter>
+    </BrowserRouter>
 
   </React.StrictMode>
 

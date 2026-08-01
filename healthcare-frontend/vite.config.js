@@ -9,6 +9,5 @@ plugins:[
 react(),
 tailwindcss()
 ],
-base:"/Healthcare-project/"
 
 });
