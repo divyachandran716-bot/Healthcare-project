@@ -51,21 +51,15 @@ const [discount,setDiscount]=useState(0);
 const [paymentMethod,setPaymentMethod]=useState("Cash");
 
 
+// const config={
 
-const token =
-localStorage.getItem("token");
+// headers:{
 
+// Authorization:`Bearer ${token}`
 
+// }
 
-const config={
-
-headers:{
-
-Authorization:`Bearer ${token}`
-
-}
-
-};
+// };
 
 
 

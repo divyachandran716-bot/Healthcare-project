@@ -26,13 +26,13 @@ const [chatResponse,setChatResponse] = useState("");
 const [loading,setLoading]=useState(true);
 
 
-const config={
+// const config={
 
-headers:{
-Authorization:`Bearer ${token}`
-}
+// headers:{
+// Authorization:`Bearer ${token}`
+// }
 
-};
+// };
 
 
 

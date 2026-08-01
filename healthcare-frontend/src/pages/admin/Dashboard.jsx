@@ -25,13 +25,13 @@ export default function Dashboard(){
 
 const navigate = useNavigate();
 
-const config={
+// const config={
 
-headers:{
-Authorization:`Bearer ${token}`
-}
+// headers:{
+// Authorization:`Bearer ${token}`
+// }
 
-};
+// };
 
 
 
