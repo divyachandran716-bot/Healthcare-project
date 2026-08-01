@@ -64,14 +64,27 @@ response.data.reports || []
 
 catch(error){
 
+console.log("FULL ERROR:", error);
+
 console.log(
-"Report Error:",
+"STATUS:",
+error.response?.status
+);
+
+console.log(
+"DATA:",
 error.response?.data
+);
+
+console.log(
+"MESSAGE:",
+error.message
 );
 
 toast.error(
 "Unable to load reports"
 );
+
 }
 
 finally{
