@@ -21,13 +21,12 @@ ReactDOM.createRoot(
 
       <App />
 
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
+
     </HashRouter>
-
-
-    <Toaster
-      position="top-right"
-    />
-
 
   </React.StrictMode>
 
