@@ -25,16 +25,6 @@ export default function Dashboard(){
 
 const navigate = useNavigate();
 
-// const config={
-
-// headers:{
-// Authorization:`Bearer ${token}`
-// }
-
-// };
-
-
-
 const [loading,setLoading]=useState(true);
 
 
@@ -71,8 +61,7 @@ try{
 
 const response =
 await API.get(
-"/analytics/dashboard",
-config
+"/analytics/dashboard"
 );
 
 
@@ -152,8 +141,7 @@ try{
 
 const response =
 await API.get(
-"/analytics/ai",
-config
+"/analytics/ai"
 );
 
 
@@ -195,15 +183,10 @@ setAIInsight(
 
 };
 
-
-
-
-
-
-
-
-
 useEffect(()=>{
+
+const token =
+localStorage.getItem("token");
 
 
 if(!token){
