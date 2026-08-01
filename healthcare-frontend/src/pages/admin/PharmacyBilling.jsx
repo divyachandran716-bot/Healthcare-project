@@ -51,22 +51,7 @@ const [discount,setDiscount]=useState(0);
 const [paymentMethod,setPaymentMethod]=useState("Cash");
 
 
-// const config={
-
-// headers:{
-
-// Authorization:`Bearer ${token}`
-
-// }
-
-// };
-
-
-
-
-// =============================
 // FETCH PATIENTS
-// =============================
 
 
 const fetchPatients=async()=>{
@@ -77,8 +62,7 @@ try{
 
 const res =
 await API.get(
-"/patients",
-config
+"/patients"
 );
 
 
@@ -104,8 +88,7 @@ const fetchDoctors = async()=>{
 try{
 
 const res = await API.get(
-"/doctors",
-config
+"/doctors"
 );
 
 
@@ -138,8 +121,7 @@ try{
 
 const res =
 await API.get(
-"/pharmacy",
-config
+"/pharmacy"
 );
 
 
@@ -185,10 +167,7 @@ try{
 const res =
 await API.get(
 
-"/billing",
-
-config
-
+"/billing"
 );
 
 
@@ -471,10 +450,7 @@ await API.post(
 
 "/billing",
 
-payload,
-
-config
-
+payload
 );
 
 
