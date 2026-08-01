@@ -89,7 +89,7 @@ const fetchDashboard=async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
+// const token = localStorage.getItem("token");
 
 // logged-in doctor profile
 
