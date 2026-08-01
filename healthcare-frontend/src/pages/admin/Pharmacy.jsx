@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../../api/axios";
 import { exportCSV } from "../../utils/exportCSV";
 
 import {
@@ -24,11 +24,6 @@ const [search,setSearch] = useState("");
 const [showModal,setShowModal] = useState(false);
 
 const [editId,setEditId] = useState(null);
-
-
-const token = localStorage.getItem("token");
-
-
 
 const [form,setForm] = useState({
 
@@ -55,16 +50,8 @@ const fetchMedicines = async()=>{
 try{
 
 
-const response = await axios.get(
-
-"http://localhost:5000/api/pharmacy",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+const response = await API.get(
+  "/pharmacy"
 );
 
 
@@ -120,20 +107,10 @@ try{
 if(editId){
 
 
-await axios.put(
-
-`http://localhost:5000/api/pharmacy/${editId}`,
-
-form,
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+await API.put(
+  `/pharmacy/${editId}`,
+  form
 );
-
 
 }
 else{
@@ -149,16 +126,9 @@ price:Number(form.price)
 };
 
 
-await axios.post(
-"http://localhost:5000/api/pharmacy",
-payload,
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+await API.post(
+  "/pharmacy",
+  payload
 );
 
 
@@ -215,16 +185,8 @@ const deleteMedicine = async(id)=>{
 try{
 
 
-await axios.delete(
-
-`http://localhost:5000/api/pharmacy/${id}`,
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+await API.delete(
+  `/pharmacy/${id}`
 );
 
 

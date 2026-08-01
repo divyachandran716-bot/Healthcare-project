@@ -13,8 +13,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 import {
   motion
 } from "framer-motion";
@@ -69,16 +68,9 @@ const fetchPatients = async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
 
-const res = await axios.get(
-"http://localhost:5000/api/patients/doctor",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+const res = await API.get(
+  "/patients/doctor"
 );
 
 console.log(

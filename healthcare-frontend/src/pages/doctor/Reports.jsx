@@ -12,8 +12,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 import toast from "react-hot-toast";
 
 export default function Reports(){
@@ -48,19 +47,10 @@ const fetchReports = async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
-
 console.log("REPORT TOKEN:", token);
 
-const response = await axios.get(
-
-"http://localhost:5000/api/reports/doctor",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+const response = await API.get(
+"/reports/doctor"
 );
 
 console.log(

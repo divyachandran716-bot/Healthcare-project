@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-
+import API from "../../api/axios";
 import {
   Users,
   Stethoscope,
@@ -52,13 +51,6 @@ const [aiInsight,setAIInsight]=useState(
 
 const [loading,setLoading]=useState(true);
 
-
-
-const token =
-localStorage.getItem("token");
-
-
-
 const config={
 
 headers:{
@@ -87,23 +79,15 @@ setLoading(true);
 
 
 const dashboardResponse =
-await axios.get(
-
-"http://localhost:5000/api/analytics/dashboard",
-
-config
-
+await API.get(
+"/analytics/dashboard"
 );
 
 
 
 const diseaseResponse =
-await axios.get(
-
-"http://localhost:5000/api/analytics/diseases",
-
-config
-
+await API.get(
+  "/analytics/diseases"
 );
 
 console.log(
@@ -209,12 +193,8 @@ try{
 
 
 const aiResponse =
-await axios.get(
-
-"http://localhost:5000/api/analytics/ai",
-
-config
-
+await API.get(
+"/analytics/ai"
 );
 
 

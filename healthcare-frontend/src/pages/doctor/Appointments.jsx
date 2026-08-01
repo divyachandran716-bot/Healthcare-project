@@ -13,8 +13,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 import toast from "react-hot-toast";
 
 export default function Appointments(){
@@ -35,20 +34,9 @@ const fetchAppointments = async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
 
-const response = await axios.get(
-
-"http://localhost:5000/api/appointments",
-
-{
-
-headers:{
-
-Authorization:`Bearer ${token}`
-
-}
-}
+const response = await API.get(
+  "/appointments"
 );
 
 console.log(

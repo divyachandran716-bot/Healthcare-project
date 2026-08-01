@@ -11,8 +11,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 export default function EmergencyAlerts(){
 
 const [alerts,setAlerts] = useState([]);
@@ -29,18 +28,9 @@ const fetchAlerts = async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
 
-const res = await axios.get(
-
-"http://localhost:5000/api/emergency-alerts",
-
-{
-
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+const res = await API.get(
+  "/emergency-alerts"
 );
 
 console.log(
@@ -82,16 +72,9 @@ try{
 
 const token =
 localStorage.getItem("token");
-await axios.put(
-
-`http://localhost:5000/api/emergency-alerts/${id}`,
-
-{},
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+await API.put(
+  `/emergency-alerts/${id}`,
+  {}
 );
 
 setAlerts(

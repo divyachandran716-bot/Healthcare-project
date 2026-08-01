@@ -11,8 +11,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 export default function NursingNotes(){
 
 const [showForm,setShowForm]=useState(false);
@@ -39,20 +38,8 @@ const fetchNotes = async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
-
-const res = await axios.get(
-
-"http://localhost:5000/api/nurses/notes",
-
-{
-
-headers:{
-
-Authorization:`Bearer ${token}`
-
-}
-}
+const res = await API.get(
+  "/nurses/notes"
 );
 
 console.log("NURSING NOTES:",res.data);
@@ -104,21 +91,10 @@ const addNote = async()=>{
 
 try{
 
-const token =
-localStorage.getItem("token");
-
 const res =
-await axios.post(
-
-"http://localhost:5000/api/nurses/notes",
-
-form,
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+await API.post(
+  "/nurses/notes",
+  form
 );
 
 console.log(res.data);

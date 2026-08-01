@@ -12,8 +12,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 
 export default function VitalSigns(){
 
@@ -49,20 +48,8 @@ const fetchVitals = async()=>{
 
 try{
 
-
-const token = localStorage.getItem("token");
-
-
-const res = await axios.get(
-
-"http://localhost:5000/api/vitals",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+const res = await API.get(
+  "/vitals"
 );
 
 
@@ -136,21 +123,10 @@ const addVital = async()=>{
 
 try{
 
-const token = localStorage.getItem("token");
 
-
-const res = await axios.post(
-
-"http://localhost:5000/api/vitals",
-
-vitalForm,
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+const res = await API.post(
+  "/vitals",
+  vitalForm
 );
 
 

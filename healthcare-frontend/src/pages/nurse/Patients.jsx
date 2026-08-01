@@ -5,8 +5,7 @@ import {
 } from "lucide-react";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
-
+import API from "../../api/axios";
 export default function Patients(){
 
 const [search, setSearch] = useState("");
@@ -26,16 +25,9 @@ useEffect(() => {
 
 const fetchPatients = async () => {
   try {
-    const token = localStorage.getItem("token");
-
-    const res = await axios.get(
-      "http://localhost:5000/api/nurses/patients",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+ const res = await API.get(
+  "/nurses/patients"
+);
 
         setPatientsData(res.data.patients);
 

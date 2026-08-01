@@ -14,8 +14,7 @@ import {
 } from "react-router-dom";
 
 import { useState, useEffect } from "react";
-import axios from "axios";
-
+import API from "../../api/axios";
 export default function Dashboard(){
 
   const navigate = useNavigate();
@@ -51,16 +50,10 @@ const [loading,setLoading] = useState(true);
 useEffect(() => {
   const fetchDashboard = async () => {
     try {
-      const token = localStorage.getItem("token");
 
-      const dashboardRes = await axios.get(
-        "http://localhost:5000/api/nurses/dashboard",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+ const dashboardRes = await API.get(
+  "/nurses/dashboard"
+);
 
       setDashboard(dashboardRes.data.dashboard);
 setNurse(
@@ -71,14 +64,9 @@ setNurse(
   }
 );
 
-      const patientRes = await axios.get(
-        "http://localhost:5000/api/nurses/patients",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+const patientRes = await API.get(
+  "/nurses/patients"
+);
 
       setPatients(patientRes.data.patients);
 

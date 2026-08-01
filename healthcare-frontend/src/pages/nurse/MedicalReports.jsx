@@ -15,8 +15,7 @@ import {
 } from "react";
 
 
-import axios from "axios";
-
+import API from "../../api/axios";
 
 
 export default function MedicalReports(){
@@ -47,25 +46,8 @@ const fetchReports=async()=>{
 
 try{
 
-
-const token =
-localStorage.getItem("token");
-
-
-
-const res = await axios.get(
-
-"http://localhost:5000/api/medical-reports",
-
-{
-
-headers:{
-Authorization:
-`Bearer ${token}`
-}
-
-}
-
+const res = await API.get(
+  "/medical-reports"
 );
 
 

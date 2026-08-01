@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-
+import API from "../../api/axios";
 import {
   Brain,
   Activity,
@@ -25,11 +24,6 @@ const [message,setMessage] = useState("");
 const [chatResponse,setChatResponse] = useState("");
 
 const [loading,setLoading]=useState(true);
-
-
-const token =
-localStorage.getItem("token");
-
 
 
 const config={
@@ -61,12 +55,8 @@ setLoading(true);
 // AI INSIGHT
 
 const ai =
-await axios.get(
-
-"http://localhost:5000/api/analytics/ai",
-
-config
-
+await API.get(
+  "/analytics/ai"
 );
 
 
@@ -87,12 +77,8 @@ ai.data.insight ||
 
 
 const risk =
-await axios.get(
-
-"http://localhost:5000/api/analytics/risk-analysis",
-
-config
-
+await API.get(
+  "/analytics/risk-analysis"
 );
 
 
@@ -114,12 +100,8 @@ risk.data.risks ||
 
 
 const trend =
-await axios.get(
-
-"http://localhost:5000/api/analytics/disease-trends",
-
-config
-
+await API.get(
+  "/analytics/disease-trends"
 );
 
 
@@ -206,16 +188,11 @@ return;
 try{
 
 
-const response = await axios.post(
-
-"http://localhost:5000/api/ai/chat",
-
-{
-message
-},
-
-config
-
+const response = await API.post(
+  "/ai/chat",
+  {
+    message
+  }
 );
 
 

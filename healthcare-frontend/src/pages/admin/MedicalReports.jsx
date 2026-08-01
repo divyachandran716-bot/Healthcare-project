@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-
+import API from "../../api/axios";
 import {
   FileText,
   Search,
@@ -23,11 +22,6 @@ const [status,setStatus] = useState("All");
 
 const [selectedReport,setSelectedReport] = useState(null);
 
-
-const token = localStorage.getItem("token");
-
-
-
 // Fetch Reports
 
 const fetchReports = async()=>{
@@ -36,16 +30,8 @@ const fetchReports = async()=>{
 try{
 
 
-const response = await axios.get(
-
-"http://localhost:5000/api/reports",
-
-{
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
-
+const response = await API.get(
+  "/reports"
 );
 
 

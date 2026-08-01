@@ -11,8 +11,7 @@ import {
   useEffect
 } from "react";
 
-import axios from "axios";
-
+import API from "../../api/axios";
 export default function Appointments(){
 
 const [search,setSearch]=useState("");
@@ -31,19 +30,8 @@ const fetchAppointments=async()=>{
 
 try{
 
-const token =
-localStorage.getItem("token");
-
-const res = await axios.get(
-
-"http://localhost:5000/api/appointments",
-
-{
-
-headers:{
-Authorization:`Bearer ${token}`
-}
-}
+const res = await API.get(
+  "/appointments"
 );
 
 console.log(
