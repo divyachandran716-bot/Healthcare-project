@@ -25,13 +25,6 @@ export default function Dashboard(){
 
 const navigate = useNavigate();
 
-
-
-const token =
-localStorage.getItem("token");
-
-
-
 const config={
 
 headers:{
