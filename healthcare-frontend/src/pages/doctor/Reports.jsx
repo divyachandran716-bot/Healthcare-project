@@ -47,7 +47,6 @@ const fetchReports = async()=>{
 
 try{
 
-console.log("REPORT TOKEN:", token);
 
 const response = await API.get(
 "/reports/doctor"
